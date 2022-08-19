@@ -26,13 +26,14 @@ class cryptothings:
     def getprice():           
         response = requests.get(f"https://api.coinbase.com/v2/prices/{cryptothings.returncrypto()}-USD/sell").text
         response_info = json.loads(response)
-        return float(response_info["data"]["amount"])
+        cryptoprice = float(response_info["data"]["amount"])
+        return cryptoprice_sell
 
     def getbuyprice():
         response = requests.get(f"https://api.coinbase.com/v2/prices/{cryptothings.returncrypto()}-USD/buy").text
         response_info = json.loads(response)
-        cryptoprice = response_info["data"]["amount"]
-        return cryptoprice
+        cryptoprice = float(response_info["data"]["amount"])
+        return cryptoprice_buy
         
 
 class plotthings:
